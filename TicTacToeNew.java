@@ -259,7 +259,7 @@ public class TicTacToeNew {
                 }
             }
             else if(three.equals(six) && six.equals(nine)){
-                System.out.println("player "+one+" Wins! Enter 1 to play again, or 0 to exit: !");
+                System.out.println("player "+three+" Wins! Enter 1 to play again, or 0 to exit: !");
                 choice = sc.next();
                 if(choice.equals("1")){
                     play();
@@ -321,4 +321,4 @@ public class TicTacToeNew {
  
 
             
- }
+ 

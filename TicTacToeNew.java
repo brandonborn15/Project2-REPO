@@ -35,12 +35,16 @@ public class TicTacToeNew {
             static void playerSet(){
                 System.out.print("\n  " + player1Name+ ", choose a symbol to play with, \"x\" or \"o\"? ");
                 player1Symbol = sc.next().toLowerCase();
-                if(player1Symbol=="x"){
+                if(player1Symbol.equals("x")){
                     player1Symbol = "x";
                     player2Symbol="o";
                     }
-                else player2Symbol="x";
-                    System.out.print("  => " + player2Name+ " will play with the '" + player2Symbol + " symbol.\n");
+                else {
+                    player1Symbol = "o";
+                    player2Symbol="x";
+
+                }
+                System.out.print("  => " + player2Name+ " will play with the '" + player2Symbol + " symbol.\n");
             }
             static void playerOrder(){
                 System.out.print("\n  " + player1Name + ", would you like to play first (y/n)? ");
@@ -213,6 +217,13 @@ public class TicTacToeNew {
            to be true or not and if one scenerio deems to be true, the the winning player will be announced and 
            given an option to replay the game*/
         if(one.equals(two) && two.equals(three)){
+            if(one.equals("x")){
+                xTally++;
+            }
+            else{
+                yTally++;
+            }
+            System.out.println("Winner tally: X - " + xTally + " Y - " + yTally);
             System.out.println("player "+one+" Wins! Enter 1 to play again, or 0 to exit: ");
             choice = sc.next();
                 if(choice.equals("1")){
@@ -227,6 +238,13 @@ public class TicTacToeNew {
             /*This process will repeat itself for every win scenerio*/
             }
             else if(one.equals(four) && four.equals(seven)){
+                if(one.equals("x")){
+                    xTally++;
+                }
+                else{
+                    yTally++;
+                }
+                System.out.println("Winner tally: X - " + xTally + " Y - " + yTally);
             System.out.println("player "+one+" Wins! Enter 1 to play again, or 0 to exit: ");
             choice = sc.next();
                 if(choice.equals("1")){
@@ -238,6 +256,13 @@ public class TicTacToeNew {
             }
             }
             else if(one.equals(five) && five.equals(nine)){
+                if(one.equals("x")){
+                    xTally++;
+                }
+                else{
+                    yTally++;
+                }
+                System.out.println("Winner tally: X - " + xTally + " Y - " + yTally);
                 System.out.println("player "+one+" Wins! Enter 1 to play again, or 0 to exit: ");
                 choice = sc.next();
                 if(choice.equals("1")){
@@ -260,6 +285,13 @@ public class TicTacToeNew {
                 }
             }
             else if(three.equals(six) && six.equals(nine)){
+                if(one.equals("x")){
+                    xTally++;
+                }
+                else{
+                    yTally++;
+                }
+                System.out.println("Winner tally: X - " + xTally + " Y - " + yTally);
                 System.out.println("player "+three+" Wins! Enter 1 to play again, or 0 to exit: !");
                 choice = sc.next();
                 if(choice.equals("1")){
@@ -282,6 +314,13 @@ public class TicTacToeNew {
             }
             }
             else if(four.equals(five) && four.equals(six)){
+                if(one.equals("x")){
+                    xTally++;
+                }
+                else{
+                    yTally++;
+                }
+                System.out.println("Winner tally: X - " + xTally + " Y - " + yTally);
                 System.out.println("player "+four+" Wins! Enter 1 to play again, or 0 to exit: !");
                 choice = sc.next();
                 if(choice.equals("1")){
@@ -294,6 +333,13 @@ public class TicTacToeNew {
             }
             
             else if(seven.equals(eight) && eight.equals(nine)){
+                if(one.equals("x")){
+                    xTally++;
+                }
+                else{
+                    yTally++;
+                }
+                System.out.println("Winner tally: X - " + xTally + " Y - " + yTally);
                 System.out.println("player "+seven+" Wins! Enter 1 to play again, or 0 to exit: !");
                 choice = sc.next();
                 if(choice.equals("1")){
@@ -308,6 +354,13 @@ public class TicTacToeNew {
             /*If the turn count has reached its max of 9(no more moves), the game will print out 
             *there is no winner and will repeat the options of playing again or quitting the game
             *completly*/
+            if(one.equals("x")){
+                xTally++;
+            }
+            else{
+                yTally++;
+            }
+            System.out.println("Winner tally: X - " + xTally + " Y - " + yTally);
                 System.out.println("No Winner. Enter 1 to play again, or 0 to exit: ");
                 if(choice.equals("1")){
                     play();

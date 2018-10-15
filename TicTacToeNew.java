@@ -36,10 +36,11 @@ public class TicTacToeNew {
                 System.out.print("\n  " + player1Name+ ", choose a symbol to play with, \"x\" or \"o\"? ");
                 player1Symbol = sc.next().toLowerCase();
                 if(player1Symbol=="x"){
-                player2Symbol="o";
-                }
+                    player1Symbol = "x";
+                    player2Symbol="o";
+                    }
                 else player2Symbol="x";
-                System.out.print("  => " + player2Name+ " will play with the '" + player2Symbol + " symbol.\n");
+                    System.out.print("  => " + player2Name+ " will play with the '" + player2Symbol + " symbol.\n");
             }
             static void playerOrder(){
                 System.out.print("\n  " + player1Name + ", would you like to play first (y/n)? ");

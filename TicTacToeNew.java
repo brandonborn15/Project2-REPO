@@ -67,10 +67,18 @@ public class TicTacToeNew {
                     /* This loop repeats for as long as the players havent run out of moves
                      * yet ones the max amount of moves have been over played the game wouldnt
                      * work because there is no room to play*/
-                    player1();
-                    checkWin();
-                    player2();
-                    checkWin();
+                    if(player1NameTurn=0){
+                        player1();
+                        checkWin();
+                        player2();
+                        checkWin();
+                }
+                    else {
+                        player2();
+                        checkWin();
+                        player1();
+                        checkWin(); 
+                    }
             }
         }
             static void clearBoard(){

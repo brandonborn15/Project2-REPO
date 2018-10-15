@@ -223,7 +223,7 @@ public class TicTacToeNew {
             else{
                 yTally++;
             }
-            System.out.println("Winner tally: X - " + xTally + " Y - " + yTally);
+            System.out.println("Winner tally: " + player1Name + " - " + xTally + " " + player2Name + ": " + yTally);
             System.out.println("player "+one+" Wins! Enter 1 to play again, or 0 to exit: ");
             choice = sc.next();
                 if(choice.equals("1")){
@@ -244,7 +244,7 @@ public class TicTacToeNew {
                 else{
                     yTally++;
                 }
-                System.out.println("Winner tally: X - " + xTally + " Y - " + yTally);
+                System.out.println("Winner tally: " + player1Name + " - " + xTally + " " + player2Name + ": " + yTally);
             System.out.println("player "+one+" Wins! Enter 1 to play again, or 0 to exit: ");
             choice = sc.next();
                 if(choice.equals("1")){
@@ -262,7 +262,7 @@ public class TicTacToeNew {
                 else{
                     yTally++;
                 }
-                System.out.println("Winner tally: X - " + xTally + " Y - " + yTally);
+                System.out.println("Winner tally: " + player1Name + " - " + xTally + " " + player2Name + ": " + yTally);
                 System.out.println("player "+one+" Wins! Enter 1 to play again, or 0 to exit: ");
                 choice = sc.next();
                 if(choice.equals("1")){
@@ -291,7 +291,7 @@ public class TicTacToeNew {
                 else{
                     yTally++;
                 }
-                System.out.println("Winner tally: X - " + xTally + " Y - " + yTally);
+                System.out.println("Winner tally: " + player1Name + " - " + xTally + " " + player2Name + ": " + yTally);
                 System.out.println("player "+three+" Wins! Enter 1 to play again, or 0 to exit: !");
                 choice = sc.next();
                 if(choice.equals("1")){
@@ -320,7 +320,7 @@ public class TicTacToeNew {
                 else{
                     yTally++;
                 }
-                System.out.println("Winner tally: X - " + xTally + " Y - " + yTally);
+                System.out.println("Winner tally: " + player1Name + " - " + xTally + " " + player2Name + ": " + yTally);
                 System.out.println("player "+four+" Wins! Enter 1 to play again, or 0 to exit: !");
                 choice = sc.next();
                 if(choice.equals("1")){
@@ -339,7 +339,7 @@ public class TicTacToeNew {
                 else{
                     yTally++;
                 }
-                System.out.println("Winner tally: X - " + xTally + " Y - " + yTally);
+                System.out.println("Winner tally: " + player1Name + " - " + xTally + " " + player2Name + ": " + yTally);
                 System.out.println("player "+seven+" Wins! Enter 1 to play again, or 0 to exit: !");
                 choice = sc.next();
                 if(choice.equals("1")){
@@ -360,7 +360,7 @@ public class TicTacToeNew {
             else{
                 yTally++;
             }
-            System.out.println("Winner tally: X - " + xTally + " Y - " + yTally);
+            System.out.println("Winner tally: X - " + xTally + " " + player2Name + ": " + yTally);
                 System.out.println("No Winner. Enter 1 to play again, or 0 to exit: ");
                 if(choice.equals("1")){
                     play();

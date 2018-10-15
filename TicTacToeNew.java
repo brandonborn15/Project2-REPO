@@ -4,10 +4,9 @@ import java.io.*;
 public class TicTacToeNew {
     static Scanner sc = new Scanner(System.in);
     static LinkedList checkDupes = new LinkedList();
-    static String player1Name;
-    static String player2Name;
-    static int player1NameTurn;
-    static int player2NameTurn;
+    static String player1Name, player2Name; // custom player names
+    static int player1NameTurn, player2NameTurn; //selection for who goes
+    static int xTally, yTally; //tallies for player wins
     static String one = "1";
     static String two = "2";
     static String three= "3";

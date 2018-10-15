@@ -2,6 +2,7 @@ import java.util.Scanner;
 import java.util.*;
 import java.io.*;
 public class TicTacToeNew {
+    /* part1 variables */
     static Scanner sc = new Scanner(System.in);
     static LinkedList checkDupes = new LinkedList();
     static String player1Name, player2Name; // custom player names
@@ -20,6 +21,9 @@ public class TicTacToeNew {
     static String choice = "";//initial string until chnged by the scanner
     static String player1Symbol;
     static String player2Symbol;
+    /*------------------------------------------------------*/
+    /*part2 setup*/
+    /*------------------------------------------------------*/
         public static void main(String[] args){
             namesSet();
             playerSet();
@@ -32,6 +36,7 @@ public class TicTacToeNew {
                 System.out.print("  Please, enter Player 2's name: ");
                 player2Name = sc.next();
             }
+            
             static void playerSet(){
                 System.out.print("\n  " + player1Name+ ", choose a symbol to play with, \"x\" or \"o\"? ");
                 player1Symbol = sc.next().toLowerCase();
@@ -42,10 +47,10 @@ public class TicTacToeNew {
                 else {
                     player1Symbol = "o";
                     player2Symbol="x";
-
                 }
                 System.out.print("  => " + player2Name+ " will play with the '" + player2Symbol + " symbol.\n");
             }
+
             static void playerOrder(){
                 System.out.print("\n  " + player1Name + ", would you like to play first (y/n)? ");
                 char playerAns = sc.next().toLowerCase().charAt(0);

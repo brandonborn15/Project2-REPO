@@ -72,7 +72,7 @@ public class TicTacToeNew {
                 draw();
                 turnCount = 0;
                 while (turnCount <= 8) {
-                    if(player1NameTurn=0){
+                    if(player1NameTurn==0){
                         player1();
                         checkWin();
                         player2();

@@ -273,6 +273,12 @@ public class TicTacToeNew {
             }
         }
         else if(two.equals(five) && five.equals(eight)){
+            if(one.equals("x")){
+                xTally++;
+            }
+            else{
+                yTally++;
+            }
             System.out.println("player "+two+" Wins! Enter 1 to play again, or 0 to exit: ");
             choice = sc.next();
             if(choice.equals("1")){

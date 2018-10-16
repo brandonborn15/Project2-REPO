@@ -361,12 +361,6 @@ public class TicTacToeNew {
             }
         }
         else if(turnCount==9){
-            if(one.equals("x")){
-                xTally++;
-            }
-            else{
-                yTally++;
-            }
             System.out.println("Winner tally: X - " + xTally + " " + player2Name + ": " + yTally);
             System.out.println("No Winner. Enter 1 to play again, or 0 to exit: ");
             if(choice.equals("1")){

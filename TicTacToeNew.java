@@ -273,7 +273,7 @@ public class TicTacToeNew {
             }
         }
         else if(two.equals(five) && five.equals(eight)){
-            if(one.equals("x")){
+            if(two.equals("x")){
                 xTally++;
             }
             else{
@@ -290,7 +290,7 @@ public class TicTacToeNew {
             }
         }
         else if(three.equals(six) && six.equals(nine)){
-            if(one.equals("x")){
+            if(three.equals("x")){
                 xTally++;
             }
             else{
@@ -308,6 +308,12 @@ public class TicTacToeNew {
             }
         }
         else if(seven.equals(five) && five.equals(three)){
+            if(seven.equals("x")){
+                xTally++;
+            }
+            else{
+                yTally++;
+            }
             System.out.println("player "+seven+" Wins! Enter 1 to play again, or 0 to exit: !");
             choice = sc.next();
             if(choice.equals("1")){

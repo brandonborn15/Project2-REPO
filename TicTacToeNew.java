@@ -68,7 +68,7 @@ public class TicTacToeNew {
     /*--------------------------------------- */
     /*part3 game functions*/
     /*--------------------------------------- */
-    static void play() {
+    static void play() {//runs the game in a loop for unlimited games unless told to end the loop and the code will stop running
         clearBoard();//resets the board
         draw();// draws the board
         turnCount = 0;// resets the count to 0
@@ -106,7 +106,7 @@ public class TicTacToeNew {
         nine = "9";
         turnCount = 0; // resets the turn count back to 0
     }
-    static void player1(){
+    static void player1(){//allows the 1st player to  make their moves or tells them that their moves are invalid, prints the game board ith the new turn, counts the number of turns, and checks for a win
         turnCount= turnCount+1; //adds to the turn count for evey move
         System.out.println(player1Name+", enter the number that corresponds to the cell: "); // directions to place a move
         choice = sc.next();
@@ -117,7 +117,7 @@ public class TicTacToeNew {
         if(one.equals(choice) && !checkDupes.contains(choice)){//checks if the location has ben used already
             one =player1Symbol;
             checkDupes.add(choice);//adds the designated location into the linkedlist so it cannot be used again
-            draw();
+            draw();//re-draws the new game table with the charcter in the designated location
         }
         else if(two.equals(choice) && !checkDupes.contains(choice)){
             two =player1Symbol;
@@ -165,7 +165,7 @@ public class TicTacToeNew {
             player1();
         }
     }
-    public static void player2(){
+    public static void player2(){//allows the 2nd player to  make their moves or tells them that their moves are invalid, prints the game board ith the new turn, counts the number of turns, and checks for a win
         turnCount= turnCount+1;//adds to the turn count for evey move
         System.out.println(player2Name+", enter the number that corresponds to the cell: ");// directions to place a move
         choice = sc.next();
@@ -176,7 +176,7 @@ public class TicTacToeNew {
         if(one.equals(choice) && !checkDupes.contains(choice)){//checks if the location has ben used already
             one =player2Symbol;
             checkDupes.add(choice);//adds the designated location into the linkedlist so it cannot be used again
-            draw();
+            draw();//re-draws the new game table with the charcter in the designated location
         }
         else if(two.equals(choice) && !checkDupes.contains(choice)){
             two =player2Symbol;
@@ -228,24 +228,25 @@ public class TicTacToeNew {
     /*part4 game check*/
     /*--------------------------------------- */
     public static void checkWin(){
+        //checks all of the 9 possibilities of a win for a player
         if(one.equals(two) && two.equals(three)){
-            if(one.equals("x")){
+            if(one.equals("x")){//if the winner is an x then the players whos symbol is x gets a win tally for how many wins they have over the other player
                 xTally++;
             }
-            else{
+            else{//if the winner is an o then the players whos symbol is o gets a win tally for how many wins they have over the other player
                 yTally++;
             }
-            System.out.println("Winner tally: " + player1Name + " : " + xTally + " " + player2Name + ": " + yTally);
-            System.out.println("player "+one+" Wins! Enter 1 to play again, or 0 to exit: ");
+            System.out.println("Winner tally: " + player1Name + " : " + xTally + " " + player2Name + ": " + yTally);// prints the players names and their tally wins
+            System.out.println("player "+one+" Wins! Enter 1 to play again, or 0 to exit: "); // syayes who wins and options to play again
             choice = sc.next();
-            if(choice.equals("1")){
+            if(choice.equals("1")){//to play again
                 play();
             }
-            else{
+            else{//to end the game completly
                 sc.close();
                 System.exit(0);
             }
-        }
+        }//repetition from above down for the rest of the win scenarios
         else if(one.equals(four) && four.equals(seven)){
             if(one.equals("x")){
                 xTally++;

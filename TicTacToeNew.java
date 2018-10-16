@@ -166,15 +166,16 @@ public class TicTacToeNew {
         }
     }
     public static void player2(){
-        turnCount= turnCount+1;
-        System.out.println(player2Name+", enter the number that corresponds to the cell: ");
+        turnCount= turnCount+1;//adds to the turn count for evey move
+        System.out.println(player2Name+", enter the number that corresponds to the cell: ");// directions to place a move
         choice = sc.next();
-        if(turnCount>=4){
+        if(turnCount>=4){//checks the win if there are 5 or more moves played because the is a possibility of a win for the player who goes first
             checkWin();
         }
-        if(one.equals(choice) && !checkDupes.contains(choice)){
+        //shows all the options for a player mocing into one of the 9 spaces avalible and turns the designated location into the players number, only for player 2
+        if(one.equals(choice) && !checkDupes.contains(choice)){//checks if the location has ben used already
             one =player2Symbol;
-            checkDupes.add(choice);
+            checkDupes.add(choice);//adds the designated location into the linkedlist so it cannot be used again
             draw();
         }
         else if(two.equals(choice) && !checkDupes.contains(choice)){
@@ -218,6 +219,7 @@ public class TicTacToeNew {
             draw();
         }
         else{
+            //if no one has input an option used already it tells the player to try again
             System.out.println("invalid input, try again: ");
             player2();
         }

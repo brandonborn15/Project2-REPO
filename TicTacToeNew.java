@@ -50,11 +50,12 @@ public class TicTacToeNew {
             player1Symbol = "o";
             player2Symbol= "x";
         }
-        System.out.print("  => " + player2Name+ " will play with the '" + player2Symbol + " symbol.\n");
+        System.out.print("  => " + player2Name+ " will play with the '" + player2Symbol + " symbol.\n");//re-states what player is which symbol 
             }
     static void playerOrder(){
-        System.out.print("\n  " + player1Name + ", would you like to play first (y/n)? ");
+        System.out.print("\n  " + player1Name + ", would you like to play first (y/n)? ");// asks if player 1 wants to make the forst move or not
         char playerAns = sc.next().toLowerCase().charAt(0);
+        // the below if statement shows if the answer is yes then player one has the first move which relates to the play method, if no then the oppisite
         if (playerAns == 'y') {
             player1NameTurn = 0;
             player2NameTurn = 1;
@@ -68,17 +69,19 @@ public class TicTacToeNew {
     /*part3 game functions*/
     /*--------------------------------------- */
     static void play() {
-        clearBoard();
-        draw();
-        turnCount = 0;
-        while (turnCount <= 8) {
+        clearBoard();//resets the board
+        draw();// draws the board
+        turnCount = 0;// resets the count to 0
+        while (turnCount <= 8) {//runs the game as long as the count is up to 9
             if(player1NameTurn==0){
+                //of the first player wishes to go first order
                 player1();
                 checkWin();
                 player2();
                 checkWin();
             }
             else {
+                // if the second player wishes to go first order
                 player2();
                 checkWin();
                 player1();
@@ -87,11 +90,12 @@ public class TicTacToeNew {
         }
     }
     static void draw(){
+        // creates the game board 
         System.out.println(one + "|" + two + "|" + three + "\n" + four + "|" + five +"|" + six + "\n" + seven + "|" + eight + "|" + nine +"\n");
     }
     static void clearBoard(){
-        checkDupes.clear(); 
-        one = "1";
+        checkDupes.clear(); // clears the linkedlist so it can be empty for a new game
+        one = "1";//sets all the locations back to their original numbers
         two = "2";
         three= "3";
         four = "4";
@@ -100,18 +104,19 @@ public class TicTacToeNew {
         seven = "7";
         eight= "8";
         nine = "9";
-        turnCount = 0; 
+        turnCount = 0; // resets the turn count back to 0
     }
     static void player1(){
-        turnCount= turnCount+1;
-        System.out.println(player1Name+", enter the number that corresponds to the cell: "); 
+        turnCount= turnCount+1; //adds to the turn count for evey move
+        System.out.println(player1Name+", enter the number that corresponds to the cell: "); // directions to place a move
         choice = sc.next();
-        if(turnCount>=4){
+        if(turnCount>=4){//checks the win if there are 5 or more moves played because the is a possibility of a win for the player who goes first
             checkWin();
         }
-        if(one.equals(choice) && !checkDupes.contains(choice)){
+        //shows all the options for a player mocing into one of the 9 spaces avalible and turns the designated location into the players number, only for player 1
+        if(one.equals(choice) && !checkDupes.contains(choice)){//checks if the location has ben used already
             one =player1Symbol;
-            checkDupes.add(choice);
+            checkDupes.add(choice);//adds the designated location into the linkedlist so it cannot be used again
             draw();
         }
         else if(two.equals(choice) && !checkDupes.contains(choice)){
@@ -155,6 +160,7 @@ public class TicTacToeNew {
             draw();
         }
         else{
+            //if no one has input an option used already it tells the player to try again
             System.out.println("invalid input, try again: ");
             player1();
         }

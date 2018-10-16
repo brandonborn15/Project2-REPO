@@ -24,336 +24,331 @@ public class TicTacToeNew {
     /*------------------------------------------------------*/
     /*part2 setup*/
     /*------------------------------------------------------*/
-        public static void main(String[] args){
-            namesSet();
-            playerSet();
-            play();
+    public static void main(String[] args){
+        namesSet();
+        playerSet();
+        playerOrder();
+        play();
+    }
+    static void namesSet(){
+        System.out.print(" Please, enter Player 1's name: ");
+        player1Name = sc.next();
+        /*------------------------------------*/
+        System.out.print("  Please, enter Player 2's name: ");
+        player2Name = sc.next();
+    }
+    static void playerSet(){
+        System.out.print("\n  " + player1Name+ ", choose a symbol to play with, \"x\" or \"o\"? ");
+        player1Symbol = sc.next().toLowerCase();
+        if(player1Symbol.equals("x")){
+            player1Symbol = "x";
+            player2Symbol= "o";
         }
-            static void namesSet(){
-                System.out.print(" Please, enter Player 1's name: ");
-                player1Name = sc.next();
-                /*------------------------------------*/
-                System.out.print("  Please, enter Player 2's name: ");
-                player2Name = sc.next();
+        else {
+            player1Symbol = "o";
+            player2Symbol= "x";
+        }
+        System.out.print("  => " + player2Name+ " will play with the '" + player2Symbol + " symbol.\n");
             }
-
-            static void playerSet(){
-                System.out.print("\n  " + player1Name+ ", choose a symbol to play with, \"x\" or \"o\"? ");
-                player1Symbol = sc.next().toLowerCase();
-                if(player1Symbol.equals("x")){
-                    player1Symbol = "x";
-                    player2Symbol= "o";
-                    }
-                else {
-                    player1Symbol = "o";
-                    player2Symbol= "x";
-                }
-                System.out.print("  => " + player2Name+ " will play with the '" + player2Symbol + " symbol.\n");
+    static void playerOrder(){
+        System.out.print("\n  " + player1Name + ", would you like to play first (y/n)? ");
+        char playerAns = sc.next().toLowerCase().charAt(0);
+        if (playerAns == 'y') {
+            player1NameTurn = 0;
+            player2NameTurn = 1;
+        }
+        else {
+            player1NameTurn = 1;
+            player2NameTurn = 0;
+        }
+    }
+    /*--------------------------------------- */
+    /*part3 game functions*/
+    /*--------------------------------------- */
+    static void play() {
+        clearBoard();
+        draw();
+        turnCount = 0;
+        while (turnCount <= 8) {
+            if(player1NameTurn==0){
+                player1();
+                checkWin();
+                player2();
+                checkWin();
             }
-
-            static void playerOrder(){
-                System.out.print("\n  " + player1Name + ", would you like to play first (y/n)? ");
-                char playerAns = sc.next().toLowerCase().charAt(0);
-                    if (playerAns == 'y') {
-                        player1NameTurn = 0;
-                        player2NameTurn = 1;
-                    }
-                    else {
-                        player1NameTurn = 1;
-                        player2NameTurn = 0;
-                    }
+            else {
+                player2();
+                checkWin();
+                player1();
+                checkWin(); 
             }
-
-            /*--------------------------------------- */
-            /*part3 game functions*/
-            /*--------------------------------------- */
-            static void play() {
-                clearBoard();
-                draw();
-                turnCount = 0;
-                while (turnCount <= 8) {
-                    if(player1NameTurn==0){
-                        player1();
-                        checkWin();
-                        player2();
-                        checkWin();
+        }
+    }
+    static void draw(){
+        System.out.println(one + "|" + two + "|" + three + "\n" + four + "|" + five +"|" + six + "\n" + seven + "|" + eight + "|" + nine +"\n");
+    }
+    static void clearBoard(){
+        checkDupes.clear(); 
+        one = "1";
+        two = "2";
+        three= "3";
+        four = "4";
+        five = "5";
+        six = "6";
+        seven = "7";
+        eight= "8";
+        nine = "9";
+        turnCount = 0; 
+    }
+    static void player1(){
+        turnCount= turnCount+1;
+        System.out.println(player1Name+", enter the number that corresponds to the cell: "); 
+        choice = sc.next();
+        if(turnCount>=4){
+            checkWin();
+        }
+        if(one.equals(choice) && !checkDupes.contains(choice)){
+            one =player1Symbol;
+            checkDupes.add(choice);
+            draw();
+        }
+        else if(two.equals(choice) && !checkDupes.contains(choice)){
+            two =player1Symbol;
+            checkDupes.add(choice);
+            draw();
+        }
+        else if(three.equals(choice) && !checkDupes.contains(choice)){
+            three =player1Symbol;
+            checkDupes.add(choice);
+            draw();
+        }
+        else if(four.equals(choice) && !checkDupes.contains(choice)){
+            four =player1Symbol;
+            checkDupes.add(choice);
+            draw();
+        }
+        else if(five.equals(choice) && !checkDupes.contains(choice)){
+            five =player1Symbol;
+            checkDupes.add(choice);
+            draw();
+        }
+        else if(six.equals(choice) && !checkDupes.contains(choice)){
+            six =player1Symbol;
+            checkDupes.add(choice);
+            draw();
+        }
+        else if(seven.equals(choice) && !checkDupes.contains(choice)){
+            seven =player1Symbol;
+            checkDupes.add(choice);
+            draw();
+        }
+        else if(eight.equals(choice) && !checkDupes.contains(choice)){
+            eight =player1Symbol;
+            checkDupes.add(choice);
+            draw();
                 }
-                    else {
-                        player2();
-                        checkWin();
-                        player1();
-                        checkWin(); 
-                    }
-                }
+        else if(nine.equals(choice) && !checkDupes.contains(choice)){
+            nine =player1Symbol;
+            checkDupes.add(choice);
+            draw();
+        }
+        else{
+            System.out.println("invalid input, try again: ");
+            player1();
+        }
+    }
+    public static void player2(){
+        turnCount= turnCount+1;
+        System.out.println(player2Name+", enter the number that corresponds to the cell: ");
+        choice = sc.next();
+        if(turnCount>=4){
+            checkWin();
+        }
+        if(one.equals(choice) && !checkDupes.contains(choice)){
+            one =player2Symbol;
+            checkDupes.add(choice);
+            draw();
+        }
+        else if(two.equals(choice) && !checkDupes.contains(choice)){
+            two =player2Symbol;
+            checkDupes.add(choice);
+            draw();
+        }
+        else if(three.equals(choice) && !checkDupes.contains(choice)){
+            three =player2Symbol;
+            checkDupes.add(choice);
+            draw();
+        }
+        else if(four.equals(choice) && !checkDupes.contains(choice)){
+            four =player2Symbol;
+            checkDupes.add(choice);
+            draw();
+        }
+        else if(five.equals(choice) && !checkDupes.contains(choice)){
+            five =player2Symbol;
+            checkDupes.add(choice);
+            draw();
+        }
+        else if(six.equals(choice) && !checkDupes.contains(choice)){
+            six =player2Symbol;
+            checkDupes.add(choice);
+            draw();
+        }
+        else if(seven.equals(choice) && !checkDupes.contains(choice)){
+            seven =player2Symbol;
+            checkDupes.add(choice);
+            draw();
+        }
+        else if(eight.equals(choice) && !checkDupes.contains(choice)){
+            eight =player2Symbol;
+            checkDupes.add(choice);
+            draw();
+        }
+        else if(nine.equals(choice) && !checkDupes.contains(choice)){
+            nine =player2Symbol;
+            checkDupes.add(choice);
+            draw();
+        }
+        else{
+            System.out.println("invalid input, try again: ");
+            player2();
+        }
+    }
+    /*--------------------------------------- */
+    /*part4 game check*/
+    /*--------------------------------------- */
+    public static void checkWin(){
+        if(one.equals(two) && two.equals(three)){
+            if(one.equals("x")){
+                xTally++;
             }
-
-            static void draw(){
-                System.out.println(one + "|" + two + "|" + three + "\n" + four + "|" + five +"|" + six + "\n" + seven + "|" + eight + "|" + nine +"\n");
+            else{
+                yTally++;
             }
-
-            static void clearBoard(){
-                    checkDupes.clear(); 
-                    one = "1";
-                    two = "2";
-                    three= "3";
-                    four = "4";
-                    five = "5";
-                    six = "6";
-                    seven = "7";
-                    eight= "8";
-                    nine = "9";
-                    turnCount = 0; 
+            System.out.println("Winner tally: " + player1Name + " : " + xTally + " " + player2Name + ": " + yTally);
+            System.out.println("player "+one+" Wins! Enter 1 to play again, or 0 to exit: ");
+            choice = sc.next();
+            if(choice.equals("1")){
+                play();
             }
-
-            static void player1(){
-                turnCount= turnCount+1;
-                System.out.println(player1Name+", enter the number that corresponds to the cell: "); 
-                choice = sc.next();
-                    if(turnCount>=4){
-                        checkWin();
-                    }
-                    if(one.equals(choice) && !checkDupes.contains(choice)){
-                        one =player1Symbol;
-                        checkDupes.add(choice);
-                        draw();
-                    }
-                else if(two.equals(choice) && !checkDupes.contains(choice)){
-                    two =player1Symbol;
-                    checkDupes.add(choice);
-                    draw();
-                }
-                else if(three.equals(choice) && !checkDupes.contains(choice)){
-                    three =player1Symbol;
-                    checkDupes.add(choice);
-                    draw();
-                }
-                else if(four.equals(choice) && !checkDupes.contains(choice)){
-                    four =player1Symbol;
-                    checkDupes.add(choice);
-                    draw();
-                }
-                else if(five.equals(choice) && !checkDupes.contains(choice)){
-                    five =player1Symbol;
-                    checkDupes.add(choice);
-                    draw();
-                }
-                else if(six.equals(choice) && !checkDupes.contains(choice)){
-                    six =player1Symbol;
-                    checkDupes.add(choice);
-                    draw();
-                }
-                else if(seven.equals(choice) && !checkDupes.contains(choice)){
-                    seven =player1Symbol;
-                    checkDupes.add(choice);
-                    draw();
-                }
-                else if(eight.equals(choice) && !checkDupes.contains(choice)){
-                    eight =player1Symbol;
-                    checkDupes.add(choice);
-                    draw();
-                }
-                else if(nine.equals(choice) && !checkDupes.contains(choice)){
-                    nine =player1Symbol;
-                    checkDupes.add(choice);
-                    draw();
-                }
-                    else{
-                    System.out.println("invalid input, try again: ");
-                    player1();
-                    }
-            }
-
-            public static void player2(){
-                turnCount= turnCount+1;
-                System.out.println(player2Name+", enter the number that corresponds to the cell: ");
-                choice = sc.next();
-                    if(turnCount>=4){
-                        checkWin();
-                    }
-                    if(one.equals(choice) && !checkDupes.contains(choice)){
-                        one =player2Symbol;
-                        checkDupes.add(choice);
-                        draw();
-                    }
-                else if(two.equals(choice) && !checkDupes.contains(choice)){
-                    two =player2Symbol;
-                    checkDupes.add(choice);
-                    draw();
-                }
-                else if(three.equals(choice) && !checkDupes.contains(choice)){
-                    three =player2Symbol;
-                    checkDupes.add(choice);
-                    draw();
-                }
-                else if(four.equals(choice) && !checkDupes.contains(choice)){
-                    four =player2Symbol;
-                    checkDupes.add(choice);
-                    draw();
-                }
-                else if(five.equals(choice) && !checkDupes.contains(choice)){
-                    five =player2Symbol;
-                    checkDupes.add(choice);
-                    draw();
-                }
-                else if(six.equals(choice) && !checkDupes.contains(choice)){
-                    six =player2Symbol;
-                    checkDupes.add(choice);
-                    draw();
-                }
-                else if(seven.equals(choice) && !checkDupes.contains(choice)){
-                    seven =player2Symbol;
-                    checkDupes.add(choice);
-                    draw();
-                }
-                else if(eight.equals(choice) && !checkDupes.contains(choice)){
-                    eight =player2Symbol;
-                    checkDupes.add(choice);
-                    draw();
-                }
-                else if(nine.equals(choice) && !checkDupes.contains(choice)){
-                    nine =player2Symbol;
-                    checkDupes.add(choice);
-                    draw();
-                }
-               else{
-                    System.out.println("invalid input, try again: ");
-                    player2();
-                }
-            }
-
-            public static void checkWin(){
-                if(one.equals(two) && two.equals(three)){
-                    if(one.equals("x")){
-                        xTally++;
-                }
-                else{
-                    yTally++;
-                }
-                System.out.println("Winner tally: " + player1Name + " - " + xTally + " " + player2Name + ": " + yTally);
-                System.out.println("player "+one+" Wins! Enter 1 to play again, or 0 to exit: ");
-                choice = sc.next();
-                    if(choice.equals("1")){
-                        play();
-                    }
-                    else{
-                        sc.close();
-                        System.exit(0);
-                    }
-                }
-                else if(one.equals(four) && four.equals(seven)){
-                    if(one.equals("x")){
-                        xTally++;
-                    }
-                    else{
-                        yTally++;
-                    }
-                System.out.println("Winner tally: " + player1Name + " - " + xTally + " " + player2Name + ": " + yTally);
-                System.out.println("player "+one+" Wins! Enter 1 to play again, or 0 to exit: ");
-                choice = sc.next();
-                    if(choice.equals("1")){
-                        play();
-                    }
-                    else{
-                        sc.close();
-                        System.exit(0);
-                    }
-                }
-            else if(one.equals(five) && five.equals(nine)){
-                if(one.equals("x")){
-                    xTally++;
-                }
-                else{
-                    yTally++;
-                }
-                System.out.println("Winner tally: " + player1Name + " - " + xTally + " " + player2Name + ": " + yTally);
-                System.out.println("player "+one+" Wins! Enter 1 to play again, or 0 to exit: ");
-                choice = sc.next();
-                if(choice.equals("1")){
-                    play();
-            }
-                else{
+            else{
                 sc.close();
                 System.exit(0);
             }
+        }
+        else if(one.equals(four) && four.equals(seven)){
+            if(one.equals("x")){
+                xTally++;
             }
-            else if(two.equals(five) && five.equals(eight)){
-                System.out.println("player "+two+" Wins! Enter 1 to play again, or 0 to exit: ");
-                choice = sc.next();
-                if(choice.equals("1")){
-                    play();
+            else{
+                yTally++;
             }
-                else{
-                    sc.close();
-                    System.exit(0);
+            System.out.println("Winner tally: " + player1Name + " : " + xTally + " " + player2Name + ": " + yTally);
+            System.out.println("player "+one+" Wins! Enter 1 to play again, or 0 to exit: ");
+            choice = sc.next();
+            if(choice.equals("1")){
+                play();
+            }
+            else{
+                sc.close();
+                System.exit(0);
+            }
+        }
+        else if(one.equals(five) && five.equals(nine)){
+            if(one.equals("x")){
+                xTally++;
+            }
+            else{
+                yTally++;
+            }
+            System.out.println("Winner tally: " + player1Name + " : " + xTally + " " + player2Name + ": " + yTally);
+            System.out.println("player "+one+" Wins! Enter 1 to play again, or 0 to exit: ");
+            choice = sc.next();
+            if(choice.equals("1")){
+                play();
+            }
+            else{
+                sc.close();
+                System.exit(0);
+            }
+        }
+        else if(two.equals(five) && five.equals(eight)){
+            System.out.println("player "+two+" Wins! Enter 1 to play again, or 0 to exit: ");
+            choice = sc.next();
+            if(choice.equals("1")){
+                play();
+            }
+            else{
+                sc.close();
+                System.exit(0);
+            }
+        }
+        else if(three.equals(six) && six.equals(nine)){
+            if(one.equals("x")){
+                xTally++;
+            }
+            else{
+                yTally++;
+            }
+            System.out.println("Winner tally: " + player1Name + " : " + xTally + " " + player2Name + ": " + yTally);
+            System.out.println("player "+three+" Wins! Enter 1 to play again, or 0 to exit: !");
+            choice = sc.next();
+            if(choice.equals("1")){
+                play();
+            }
+            else{
+                sc.close();
+                System.exit(0);
+            }
+        }
+        else if(seven.equals(five) && five.equals(three)){
+            System.out.println("player "+seven+" Wins! Enter 1 to play again, or 0 to exit: !");
+            choice = sc.next();
+            if(choice.equals("1")){
+                play();
+            }
+            else{
+                sc.close();
+                System.exit(0);
+            }
+        }
+        else if(four.equals(five) && four.equals(six)){
+            if(one.equals("x")){
+                xTally++;
+            }
+            else{
+                yTally++;
+            }
+            System.out.println("Winner tally: " + player1Name + " : " + xTally + " " + player2Name + ": " + yTally);
+            System.out.println("player "+four+" Wins! Enter 1 to play again, or 0 to exit: !");
+            choice = sc.next();
+            if(choice.equals("1")){
+                play();
+            }
+            else{
+                sc.close();
+                System.exit(0);
+            }
+        }
+        else if(seven.equals(eight) && eight.equals(nine)){
+            if(one.equals("x")){
+                xTally++;
                 }
+            else{
+                yTally++;
             }
-            else if(three.equals(six) && six.equals(nine)){
-                if(one.equals("x")){
-                    xTally++;
-                }
-                else{
-                    yTally++;
-                }
-                System.out.println("Winner tally: " + player1Name + " - " + xTally + " " + player2Name + ": " + yTally);
-                System.out.println("player "+three+" Wins! Enter 1 to play again, or 0 to exit: !");
-                choice = sc.next();
-                if(choice.equals("1")){
-                    play();
+            System.out.println("Winner tally: " + player1Name + " : " + xTally + " " + player2Name + ": " + yTally);
+            System.out.println("player "+seven+" Wins! Enter 1 to play again, or 0 to exit: !");
+            choice = sc.next();
+            if(choice.equals("1")){
+                play();
             }
-                else{
-                    sc.close();
-                    System.exit(0);
+            else{
+                sc.close();
+                System.exit(0);
             }
-            }
-            else if(seven.equals(five) && five.equals(three)){
-                System.out.println("player "+seven+" Wins! Enter 1 to play again, or 0 to exit: !");
-                choice = sc.next();
-                if(choice.equals("1")){
-                    play();
-            }
-                else{
-                    sc.close();
-                    System.exit(0);
-            }
-            }
-            else if(four.equals(five) && four.equals(six)){
-                if(one.equals("x")){
-                    xTally++;
-                }
-                else{
-                    yTally++;
-                }
-                System.out.println("Winner tally: " + player1Name + " - " + xTally + " " + player2Name + ": " + yTally);
-                System.out.println("player "+four+" Wins! Enter 1 to play again, or 0 to exit: !");
-                choice = sc.next();
-                if(choice.equals("1")){
-                    play();
-            }
-                else{
-                    sc.close();
-                    System.exit(0);
-            }
-            }
-            
-            else if(seven.equals(eight) && eight.equals(nine)){
-                if(one.equals("x")){
-                    xTally++;
-                }
-                else{
-                    yTally++;
-                }
-                System.out.println("Winner tally: " + player1Name + " - " + xTally + " " + player2Name + ": " + yTally);
-                System.out.println("player "+seven+" Wins! Enter 1 to play again, or 0 to exit: !");
-                choice = sc.next();
-                if(choice.equals("1")){
-                    play();
-            }
-                else{
-                    sc.close();
-                    System.exit(0);
-            }
-            }
-            else if(turnCount==9){
+        }
+        else if(turnCount==9){
             if(one.equals("x")){
                 xTally++;
             }
@@ -361,18 +356,14 @@ public class TicTacToeNew {
                 yTally++;
             }
             System.out.println("Winner tally: X - " + xTally + " " + player2Name + ": " + yTally);
-                System.out.println("No Winner. Enter 1 to play again, or 0 to exit: ");
-                if(choice.equals("1")){
-                    play();
+            System.out.println("No Winner. Enter 1 to play again, or 0 to exit: ");
+            if(choice.equals("1")){
+                play();
             }
-                else{
-                    sc.close();
-                    System.exit(0);
-            }
+            else{
+                sc.close();
+                System.exit(0);
             }
         }
+    }
 }
- 
-
-            
- 

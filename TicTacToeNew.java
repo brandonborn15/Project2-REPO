@@ -319,7 +319,7 @@ public class TicTacToeNew {
             }
         }
         else if(four.equals(five) && four.equals(six)){
-            if(one.equals("x")){
+            if(four.equals("x")){
                 xTally++;
             }
             else{

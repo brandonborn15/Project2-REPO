@@ -4,11 +4,11 @@ import java.io.*;
 public class TicTacToeNew {
     /* part1 variables */
     static Scanner sc = new Scanner(System.in);
-    static LinkedList checkDupes = new LinkedList();
+    static LinkedList checkDupes = new LinkedList(); //a list that holds all the spaces that have been used already
     static String player1Name, player2Name; 
     static int player1NameTurn, player2NameTurn; 
-    static int xTally, yTally; 
-    static String one = "1";
+    static int xTally, yTally; //the count for all the players individual wins
+    static String one = "1";// holds the "locations" of the game board
     static String two = "2";
     static String three= "3";
     static String four = "4";
@@ -17,7 +17,7 @@ public class TicTacToeNew {
     static String seven = "7";
     static String eight= "8";
     static String nine = "9";
-    static int turnCount = 0;
+    static int turnCount = 0; //counts the number of turns so there is no too many turns played
     static String choice = "";
     static String player1Symbol;
     static String player2Symbol;
@@ -31,6 +31,7 @@ public class TicTacToeNew {
         play();
     }
     static void namesSet(){
+        //opens a scanner for the users to imput their name so its a personalixed game instead of saying player x and player o
         System.out.print(" Please, enter Player 1's name: ");
         player1Name = sc.next();
         /*------------------------------------*/
@@ -39,7 +40,8 @@ public class TicTacToeNew {
     }
     static void playerSet(){
         System.out.print("\n  " + player1Name+ ", choose a symbol to play with, \"x\" or \"o\"? ");
-        player1Symbol = sc.next().toLowerCase();
+        // tells the first player to pick what symbol they want to play as, and the other player gets the other symbol
+        player1Symbol = sc.next().toLowerCase();//sets the players input at a lowercase automatically 
         if(player1Symbol.equals("x")){
             player1Symbol = "x";
             player2Symbol= "o";

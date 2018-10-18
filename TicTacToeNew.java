@@ -21,6 +21,7 @@ public class TicTacToeNew {
     static String choice = "";
     static String player1Symbol;
     static String player2Symbol;
+    static int retryCount;
     /*------------------------------------------------------*/
     /*part2 setup*/
     /*------------------------------------------------------*/
@@ -221,7 +222,14 @@ public class TicTacToeNew {
         else{
             //if no one has input an option used already it tells the player to try again
             System.out.println("invalid input, try again: ");
-            player2();
+            retryCount++;
+            if(retryCount==3){
+            System.out.println("amount of retys have been reached " +player1Name+ "your turn");
+            player1();
+            }
+            else{
+            player2();    
+            }
         }
     }
     /*--------------------------------------- */

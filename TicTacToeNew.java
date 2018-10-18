@@ -22,6 +22,7 @@ public class TicTacToeNew {
     static String player1Symbol;
     static String player2Symbol;
     static int retryCount;
+    static ArrayList<String> comp = new ArrayList<String>();
     /*------------------------------------------------------*/
     /*part2 setup*/
     /*------------------------------------------------------*/
@@ -36,8 +37,12 @@ public class TicTacToeNew {
         System.out.print(" Please, enter Player 1's name: ");
         player1Name = sc.next();
         /*------------------------------------*/
+        System.out.print("  If you wish to play against the computer type (Comp): Else ");
         System.out.print("  Please, enter Player 2's name: ");
         player2Name = sc.next();
+        if(player2Name.equals.toLowerCase("comp")){
+            playComp();
+        }
     }
     static void playerSet(){
         System.out.print("\n  " + player1Name+ ", choose a symbol to play with, \"x\" or \"o\"? ");
@@ -69,6 +74,21 @@ public class TicTacToeNew {
     /*--------------------------------------- */
     /*part3 game functions*/
     /*--------------------------------------- */
+    static void playComp(){
+        comp.add(one); comp.add(two); comp.add(three); comp.add(four); comp.add(five); comp.add(six);comp.add(seven);comp.add(eight); comp.add(nine);
+        clearBoard();//resets the board
+        draw();// draws the board
+        turnCount = 0;// resets the count to 0
+        while (turnCount <= 8) {//runs the game as long as the count is up to 9
+            if(player1NameTurn==0){
+                //of the first player wishes to go first order
+                player1();
+                checkWin();
+                Comp();
+                checkWin();
+            }
+        }
+    }
     static void play() {//runs the game in a loop for unlimited games unless told to end the loop and the code will stop running
         clearBoard();//resets the board
         draw();// draws the board
@@ -113,6 +133,10 @@ public class TicTacToeNew {
         choice = sc.next();
         if(turnCount>=4){//checks the win if there are 5 or more moves played because the is a possibility of a win for the player who goes first
             checkWin();
+        }
+        if(player2Name.equals("comp")){
+            int location = Integer.parseInt(choice);
+            comp.remove(location-1);
         }
         //shows all the options for a player mocing into one of the 9 spaces avalible and turns the designated location into the players number, only for player 1
         if(one.equals(choice) && !checkDupes.contains(choice)){//checks if the location has ben used already
@@ -243,6 +267,62 @@ public class TicTacToeNew {
         }
         retryCount=0;
     }
+    static void Comp(){
+        turnCount= turnCount+1;
+        Collections.shuffle(comp);
+        choice = comp.get(0);
+        if(turnCount>=4){//checks the win if there are 5 or more moves played because the is a possibility of a win for the player who goes first
+            checkWin();
+        }
+        //shows all the options for a player mocing into one of the 9 spaces avalible and turns the designated location into the players number, only for player 2
+        if(one.equals(choice) && !checkDupes.contains(choice)){//checks if the location has ben used already
+            one =player2Symbol;
+            checkDupes.add(choice);//adds the designated location into the linkedlist so it cannot be used again
+            draw();//re-draws the new game table with the charcter in the designated location
+        }
+        else if(two.equals(choice) && !checkDupes.contains(choice)){
+            two =player2Symbol;
+            checkDupes.add(choice);
+            draw();
+        }
+        else if(three.equals(choice) && !checkDupes.contains(choice)){
+            three =player2Symbol;
+            checkDupes.add(choice);
+            draw();
+        }
+        else if(four.equals(choice) && !checkDupes.contains(choice)){
+            four =player2Symbol;
+            checkDupes.add(choice);
+            draw();
+        }
+        else if(five.equals(choice) && !checkDupes.contains(choice)){
+            five =player2Symbol;
+            checkDupes.add(choice);
+            draw();
+        }
+        else if(six.equals(choice) && !checkDupes.contains(choice)){
+            six =player2Symbol;
+            checkDupes.add(choice);
+            draw();
+        }
+        else if(seven.equals(choice) && !checkDupes.contains(choice)){
+            seven =player2Symbol;
+            checkDupes.add(choice);
+            draw();
+        }
+        else if(eight.equals(choice) && !checkDupes.contains(choice)){
+            eight =player2Symbol;
+            checkDupes.add(choice);
+            draw();
+        }
+        else if(nine.equals(choice) && !checkDupes.contains(choice)){
+            nine =player2Symbol;
+            checkDupes.add(choice);
+            draw();
+        }
+        Collections.sort(comp);
+        }
+
     /*--------------------------------------- */
     /*part4 game check*/
     /*--------------------------------------- */

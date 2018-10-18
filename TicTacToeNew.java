@@ -40,7 +40,7 @@ public class TicTacToeNew {
         System.out.print("  If you wish to play against the computer type (Comp): Else ");
         System.out.print("  Please, enter Player 2's name: ");
         player2Name = sc.next();
-        if(player2Name.equals.toLowerCase("comp")){
+        if(player2Name.equals("comp")){
             playComp();
         }
     }

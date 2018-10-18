@@ -239,6 +239,7 @@ public class TicTacToeNew {
             player2();    
             }
         }
+        retryCount=0;
     }
     /*--------------------------------------- */
     /*part4 game check*/

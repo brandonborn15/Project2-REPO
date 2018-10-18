@@ -18,16 +18,33 @@
 5. Create a (count int) to count the measures of turns there are
 6. When deciding to replay the game, a count tally keeps track of player wins
 
-#Objective:
+# Objective:
 For this assignment we were tasked with creating an updated version of our Tic-Tac-Toe games from the first homework assignment.
 Collaborating with our new group members and compiling all of our original code to create a new and improved version of our own games.
 
-#Project Approach:
+# Project Approach:
 1. Program will be written in Java 9.0.4
 2. Review of each others code from the previous assignment so we can figure out the direction we would like to take as a group.
 3. Group members will submit their changes to our github repository with proper documentation to go along with each commit.
    a. After each submission we will report to our basecamp discussion on the changes made so everyone is on the same page going forward.
 4. UML Diagram will be made to outline our class definition before we begin to write our code.
-   a. This will be made on Draw.io and explicates how a user will move through our system. 
+   a. This will be made on Draw.io and explicates how a user will move through our system.
 5. Class and Function diagram will be made to show the functions we will have for our respective classes.
 6. Function definitions will be given to explain their own unique purpose within the program.
+
+# Program Requirements
+1. Initial class definition.
+2. Create a game board for our tic-tac-toe game.
+   a. The board must be updated after each player’s respective moves.
+3. System must be able to distinguish between player X and player O (two person game).
+   a. Create an option for players to enter their own names.
+4. Report to the players whose turn it is after a move is made.
+5. Game board should automatically update after a legal move is made. This will be achieved by efficient data structures that utilize a
+   minimum amount of memory to ensure that the program runs smoothly and efficiently.
+6. System must prohibit players from making an illegal move in a location that already has a space
+   a. Report a message to the player that this is an invalid move, and they must try again
+7. System must recognize a win as three of their moves matching vertical, horizontally, or diagonally.
+8. System must recognize if a draw is found; meaning that neither play can win.
+9. After a “win” has been found report to the players if a player has won the game
+10. When the players are finished playing, prompt them to either replay the game or exit the program
+   a. Should the players choose to continue playing keep a tally of how many times they have each won

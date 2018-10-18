@@ -164,7 +164,8 @@ public class TicTacToeNew {
             //if no one has input an option used already it tells the player to try again
             System.out.println("invalid input, try again: ");
             retryCount++; //counts for the players amount of retrys
-            if(retryCount==3){//if the number of retrys hits 3 it will skip the players turn and have it go to the next player 
+            if(retryCount==3){//if the number of retrys hits 3 it will skip the players turn and have it go to the next player
+            turnCount--; 
             System.out.println("amount of retys have been reached " +player2Name+ "your turn");
             player2();
             }
@@ -232,6 +233,7 @@ public class TicTacToeNew {
             System.out.println("invalid input, try again: ");
             retryCount++;
             if(retryCount==3){
+            turnCount--;
             System.out.println("amount of retys have been reached " +player1Name+ "your turn");
             player1();
             }

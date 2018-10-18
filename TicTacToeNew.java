@@ -23,12 +23,16 @@ public class TicTacToeNew {
     static String player2Symbol;
     static int retryCount;
     static ArrayList<String> comp = new ArrayList<String>();
+    
     /*------------------------------------------------------*/
     /*part2 setup*/
     /*------------------------------------------------------*/
     public static void main(String[] args){
         namesSet();
         playerSet();
+        if(player2Name.equals("comp")){
+            playComp();
+        }
         playerOrder();
         play();
     }
@@ -40,9 +44,6 @@ public class TicTacToeNew {
         System.out.print("  If you wish to play against the computer type (Comp): Else ");
         System.out.print("  Please, enter Player 2's name: ");
         player2Name = sc.next();
-        if(player2Name.equals("comp")){
-            playComp();
-        }
     }
     static void playerSet(){
         System.out.print("\n  " + player1Name+ ", choose a symbol to play with, \"x\" or \"o\"? ");
@@ -75,18 +76,17 @@ public class TicTacToeNew {
     /*part3 game functions*/
     /*--------------------------------------- */
     static void playComp(){
-        comp.add(one); comp.add(two); comp.add(three); comp.add(four); comp.add(five); comp.add(six);comp.add(seven);comp.add(eight); comp.add(nine);
+        comp.clear();
         clearBoard();//resets the board
         draw();// draws the board
         turnCount = 0;// resets the count to 0
+        comp.add(one); comp.add(two); comp.add(three); comp.add(four); comp.add(five); comp.add(six);comp.add(seven);comp.add(eight); comp.add(nine);
         while (turnCount <= 8) {//runs the game as long as the count is up to 9
-            if(player1NameTurn==0){
                 //of the first player wishes to go first order
                 player1();
                 checkWin();
                 Comp();
                 checkWin();
-            }
         }
     }
     static void play() {//runs the game in a loop for unlimited games unless told to end the loop and the code will stop running
@@ -134,10 +134,10 @@ public class TicTacToeNew {
         if(turnCount>=4){//checks the win if there are 5 or more moves played because the is a possibility of a win for the player who goes first
             checkWin();
         }
-        if(player2Name.equals("comp")){
-            int location = Integer.parseInt(choice);
-            comp.remove(location-1);
-        }
+        //if(player2Name.equals("comp")){
+        //    int location = Integer.parseInt(choice);
+        //    comp.remove(location-1);
+        //}
         //shows all the options for a player mocing into one of the 9 spaces avalible and turns the designated location into the players number, only for player 1
         if(one.equals(choice) && !checkDupes.contains(choice)){//checks if the location has ben used already
             one =player1Symbol;
@@ -320,7 +320,12 @@ public class TicTacToeNew {
             checkDupes.add(choice);
             draw();
         }
+        else{
+        Comp();
+        }
         Collections.sort(comp);
+        //int location = Integer.parseInt(choice);
+           // comp.remove(location-1);
         }
 
     /*--------------------------------------- */
@@ -339,7 +344,12 @@ public class TicTacToeNew {
             System.out.println("player "+one+" Wins! Enter 1 to play again, or 0 to exit: "); // syayes who wins and options to play again
             choice = sc.next();
             if(choice.equals("1")){//to play again
+                if(player2Name.equals("comp")){
+                playComp();
+                }
+                else{
                 play();
+                }
             }
             else{//to end the game completly
                 sc.close();
@@ -357,7 +367,12 @@ public class TicTacToeNew {
             System.out.println("player "+one+" Wins! Enter 1 to play again, or 0 to exit: ");
             choice = sc.next();
             if(choice.equals("1")){
+                if(player2Name.equals("comp")){
+                playComp();
+                }
+                else{
                 play();
+                }
             }
             else{
                 sc.close();
@@ -375,7 +390,12 @@ public class TicTacToeNew {
             System.out.println("player "+one+" Wins! Enter 1 to play again, or 0 to exit: ");
             choice = sc.next();
             if(choice.equals("1")){
+                if(player2Name.equals("comp")){
+                playComp();
+                }
+                else{
                 play();
+                }
             }
             else{
                 sc.close();
@@ -389,10 +409,16 @@ public class TicTacToeNew {
             else{
                 yTally++;
             }
+            System.out.println("Winner tally: " + player1Name + " : " + xTally + " " + player2Name + ": " + yTally);
             System.out.println("player "+two+" Wins! Enter 1 to play again, or 0 to exit: ");
             choice = sc.next();
             if(choice.equals("1")){
+                if(player2Name.equals("comp")){
+                playComp();
+                }
+                else{
                 play();
+                }
             }
             else{
                 sc.close();
@@ -410,7 +436,12 @@ public class TicTacToeNew {
             System.out.println("player "+three+" Wins! Enter 1 to play again, or 0 to exit: !");
             choice = sc.next();
             if(choice.equals("1")){
+                if(player2Name.equals("comp")){
+                playComp();
+                }
+                else{
                 play();
+                }
             }
             else{
                 sc.close();
@@ -424,10 +455,16 @@ public class TicTacToeNew {
             else{
                 yTally++;
             }
+            System.out.println("Winner tally: " + player1Name + " : " + xTally + " " + player2Name + ": " + yTally);
             System.out.println("player "+seven+" Wins! Enter 1 to play again, or 0 to exit: !");
             choice = sc.next();
             if(choice.equals("1")){
+                if(player2Name.equals("comp")){
+                playComp();
+                }
+                else{
                 play();
+                }
             }
             else{
                 sc.close();
@@ -445,7 +482,12 @@ public class TicTacToeNew {
             System.out.println("player "+four+" Wins! Enter 1 to play again, or 0 to exit: !");
             choice = sc.next();
             if(choice.equals("1")){
+                if(player2Name.equals("comp")){
+                playComp();
+                }
+                else{
                 play();
+                }
             }
             else{
                 sc.close();
@@ -463,7 +505,12 @@ public class TicTacToeNew {
             System.out.println("player "+seven+" Wins! Enter 1 to play again, or 0 to exit: !");
             choice = sc.next();
             if(choice.equals("1")){
+                if(player2Name.equals("comp")){
+                playComp();
+                }
+                else{
                 play();
+                }
             }
             else{
                 sc.close();
@@ -471,11 +518,16 @@ public class TicTacToeNew {
             }
         }
         else if(turnCount==9){
-            System.out.println("Winner tally: X - " + xTally + " " + player2Name + ": " + yTally);
+            System.out.println("Winner tally: X : " + xTally + " " + player2Name + ": " + yTally);
             System.out.println("No Winner. Enter 1 to play again, or 0 to exit: ");
             choice = sc.next();
             if(choice.equals("1")){
+                if(player2Name.equals("comp")){
+                playComp();
+                }
+                else{
                 play();
+                }
             }
             else{
                 sc.close();

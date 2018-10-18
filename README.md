@@ -21,3 +21,13 @@
 #Objective:
 For this assignment we were tasked with creating an updated version of our Tic-Tac-Toe games from the first homework assignment.
 Collaborating with our new group members and compiling all of our original code to create a new and improved version of our own games.
+
+#Project Approach:
+1. Program will be written in Java 9.0.4
+2. Review of each others code from the previous assignment so we can figure out the direction we would like to take as a group.
+3. Group members will submit their changes to our github repository with proper documentation to go along with each commit.
+   a. After each submission we will report to our basecamp discussion on the changes made so everyone is on the same page going forward.
+4. UML Diagram will be made to outline our class definition before we begin to write our code.
+   a. This will be made on Draw.io and explicates how a user will move through our system. 
+5. Class and Function diagram will be made to show the functions we will have for our respective classes.
+6. Function definitions will be given to explain their own unique purpose within the program.

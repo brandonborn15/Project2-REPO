@@ -5,8 +5,8 @@ public class TicTacToeNew {
     /* part1 variables */
     static Scanner sc = new Scanner(System.in);
     static LinkedList checkDupes = new LinkedList(); //a list that holds all the spaces that have been used already
-    static String player1Name, player2Name; 
-    static int player1NameTurn, player2NameTurn; 
+    static String player1Name, player2Name;
+    static int player1NameTurn, player2NameTurn;
     static int xTally, yTally; //the count for all the players individual wins
     static String one = "1";// holds the "locations" of the game board
     static String two = "2";
@@ -42,7 +42,7 @@ public class TicTacToeNew {
     static void playerSet(){
         System.out.print("\n  " + player1Name+ ", choose a symbol to play with, \"x\" or \"o\"? ");
         // tells the first player to pick what symbol they want to play as, and the other player gets the other symbol
-        player1Symbol = sc.next().toLowerCase();//sets the players input at a lowercase automatically 
+        player1Symbol = sc.next().toLowerCase();//sets the players input at a lowercase automatically
         if(player1Symbol.equals("x")){
             player1Symbol = "x";
             player2Symbol= "o";
@@ -51,7 +51,7 @@ public class TicTacToeNew {
             player1Symbol = "o";
             player2Symbol= "x";
         }
-        System.out.print("  => " + player2Name+ " will play with the '" + player2Symbol + " symbol.\n");//re-states what player is which symbol 
+        System.out.print("  => " + player2Name+ " will play with the '" + player2Symbol + " symbol.\n");//re-states what player is which symbol
             }
     static void playerOrder(){
         System.out.print("\n  " + player1Name + ", would you like to play first (y/n)? ");// asks if player 1 wants to make the forst move or not
@@ -86,12 +86,12 @@ public class TicTacToeNew {
                 player2();
                 checkWin();
                 player1();
-                checkWin(); 
+                checkWin();
             }
         }
     }
     static void draw(){
-        // creates the game board 
+        // creates the game board
         System.out.println(one + "|" + two + "|" + three + "\n" + four + "|" + five +"|" + six + "\n" + seven + "|" + eight + "|" + nine +"\n");
     }
     static void clearBoard(){
@@ -107,7 +107,7 @@ public class TicTacToeNew {
         nine = "9";
         turnCount = 0; // resets the turn count back to 0
     }
-    static void player1(){//allows the 1st player to  make their moves or tells them that their moves are invalid, prints the game board ith the new turn, counts the number of turns, and checks for a win
+    static void player1(){//allows the 1st player to  make their moves or tells them that their moves are invalid, prints the game board with the new turn, counts the number of turns, and checks for a win
         turnCount= turnCount+1; //adds to the turn count for evey move
         System.out.println(player1Name+", enter the number that corresponds to the cell: "); // directions to place a move
         choice = sc.next();
@@ -165,12 +165,12 @@ public class TicTacToeNew {
             System.out.println("invalid input, try again: ");
             retryCount++; //counts for the players amount of retrys
             if(retryCount==3){//if the number of retrys hits 3 it will skip the players turn and have it go to the next player
-            turnCount--; 
+            turnCount--;
             System.out.println("amount of retys have been reached " +player2Name+ "your turn");
             player2();
             }
             else{
-            player1();    
+            player1();
             }
         }
         retryCount=0;
@@ -238,7 +238,7 @@ public class TicTacToeNew {
             player1();
             }
             else{
-            player2();    
+            player2();
             }
         }
         retryCount=0;

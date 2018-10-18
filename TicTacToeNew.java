@@ -163,7 +163,14 @@ public class TicTacToeNew {
         else{
             //if no one has input an option used already it tells the player to try again
             System.out.println("invalid input, try again: ");
-            player1();
+            retryCount++;
+            if(retryCount==3){
+            System.out.println("amount of retys have been reached " +player2Name+ "your turn");
+            player2Symbol();
+            }
+            else{
+            player1();    
+            }
         }
     }
     public static void player2(){//allows the 2nd player to  make their moves or tells them that their moves are invalid, prints the game board ith the new turn, counts the number of turns, and checks for a win

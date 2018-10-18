@@ -172,6 +172,7 @@ public class TicTacToeNew {
             player1();    
             }
         }
+        retryCount=0;
     }
     public static void player2(){//allows the 2nd player to  make their moves or tells them that their moves are invalid, prints the game board ith the new turn, counts the number of turns, and checks for a win
         turnCount= turnCount+1;//adds to the turn count for evey move

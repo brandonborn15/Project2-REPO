@@ -391,7 +391,7 @@ public class TicTacToeNew {
                 yTally++;
             }
             System.out.println("Winner tally: " + player1Name + " : " + xTally + " " + player2Name + ": " + yTally);// prints the players names and their tally wins
-            System.out.println("player "+one+" Wins! Enter 1 to play again, or 0 to exit: "); // syayes who wins and options to play again
+            System.out.println("player "+one+" Wins! Enter 1 to play again, or 0 to exit: "); // sayes who wins and options to play again
             choice = sc.next();
             if(choice.equals("1")){//to play again
                 if(player2Name.equals("comp")){

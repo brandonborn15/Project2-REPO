@@ -310,7 +310,7 @@ public class TicTacToeNew {
     }
     /*--------------------------------------------------------------------------------------------------------------------------------------------------------- */
     static void Comp(){
-        turnCount= turnCount+1;
+        turnCount+=1;
         Collections.shuffle(comp);//creates a mixed order for the computer to pick
         choice = comp.get(0);//the first element in the mixed linked list is what gets picked
         if(turnCount>=4){//checks the win if there are 5 or more moves played because the is a possibility of a win for the player who goes first
